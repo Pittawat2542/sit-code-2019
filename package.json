@@ -1,0 +1,16 @@
+{
+  "name": "sit-code-2019",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://csgit.sit.kmutt.ac.th/ukrit.ruc/sitcode2019.git",
+  "author": "Pittawat Taveekitworachai <pittawat2542@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "hbs": "^4.0.1",
+    "knex": "^0.16.3",
+    "lodash": "^4.17.11",
+    "mysql": "^2.16.0"
+  }
+}

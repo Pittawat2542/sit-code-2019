@@ -1,0 +1,27 @@
+require("./config/config");
+
+const _ = require("lodash");
+const express = require("express");
+const hbs = require("hbs");
+
+const path = require("path");
+
+const { knex } = require("./db/knex");
+
+const app = express();
+const publicPath = path.join(__dirname + "/../public");
+const viewPath = path.join(publicPath + "/views");
+
+// Middlewares
+
+app.set("view engine", "hbs");
+app.set("views", viewPath);
+app.use(express.static(publicPath));
+
+// Routes
+
+app.get("/", (req, res) => res.send("Hello World!"));
+
+app.listen(process.env.PORT, () =>
+  console.log(`Server is up on port ${process.env.PORT}`)
+);
