@@ -13,7 +13,7 @@
 
     <!-- Site Properties -->
     <title>Suankularb Computer Week 2016 : Register - SKOI</title>
-    {{> link_css}}
+    {{> link_css_form }}
 
     <!-- Include CSS -->
     <link rel="stylesheet" href="css/animate.css">
@@ -28,18 +28,20 @@
     <script src="dist/components/sidebar.js"></script>
     <script src="dist/components/transition.js"></script>
     <script src="js/jquery.maskedinput.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <script>
         $(document)
-            .ready(function() {
+            .ready(function () {
 
                 // fix menu when passed
                 $('.masthead')
                     .visibility({
                         once: false,
-                        onBottomPassed: function() {
+                        onBottomPassed: function () {
                             $('.fixed.menu').transition('fade in');
                         },
-                        onBottomPassedReverse: function() {
+                        onBottomPassedReverse: function () {
                             $('.fixed.menu').transition('fade out');
                         }
                     });
@@ -127,42 +129,42 @@
     <div class="pusher">
         <div class="ui inverted vertical masthead center aligned segment items">
 
-          <div class="ui container">
-              <div class="ui large inverted secondary pointing menu">
-                <a class="item" href="index.html">
-                    <div class="ui tiny image">
-                        <img src="img/logo.png">
-                    </div>
-                    <div class="middle aligned content left floated zero-padding">
-                        Suankularb Computer Week 2016 : The Lost Joker
-                    </div>
-                </a>
-                <a class="item active">
-                    <div class="ui mini image hide-menu">
-                        <img src="img/diamond.png">
-                    </div>
-                    <div class="middle aligned content left floated little-padding">
-                        SKOI 2016
-                    </div>
-                </a>
-                  <a class="item" href="skic.html">
-                      <div class="ui mini image hide-menu">
-                          <img src="img/club.png">
-                      </div>
-                      <div class="middle aligned content left floated little-padding">
-                          SKIC 2016
-                      </div>
-                  </a>
-                  <a class="item" href="skwac.html">
-                      <div class="ui mini image hide-menu">
-                          <img src="img/heart.png">
-                      </div>
-                      <div class="middle aligned content left floated little-padding">
-                          SKWAC 2016
-                      </div>
-                  </a>
-              </div>
-          </div>
+            <div class="ui container">
+                <div class="ui large inverted secondary pointing menu">
+                    <a class="item" href="index.html">
+                        <div class="ui tiny image">
+                            <img src="img/logo.png">
+                        </div>
+                        <div class="middle aligned content left floated zero-padding">
+                            Suankularb Computer Week 2016 : The Lost Joker
+                        </div>
+                    </a>
+                    <a class="item active">
+                        <div class="ui mini image hide-menu">
+                            <img src="img/diamond.png">
+                        </div>
+                        <div class="middle aligned content left floated little-padding">
+                            SKOI 2016
+                        </div>
+                    </a>
+                    <a class="item" href="skic.html">
+                        <div class="ui mini image hide-menu">
+                            <img src="img/club.png">
+                        </div>
+                        <div class="middle aligned content left floated little-padding">
+                            SKIC 2016
+                        </div>
+                    </a>
+                    <a class="item" href="skwac.html">
+                        <div class="ui mini image hide-menu">
+                            <img src="img/heart.png">
+                        </div>
+                        <div class="middle aligned content left floated little-padding">
+                            SKWAC 2016
+                        </div>
+                    </a>
+                </div>
+            </div>
 
             <div class="ui text container slideInUp animated">
                 <img class="ui huge centered image zoomIn animated" src="img/skoi.png" alt="Logo">
@@ -189,9 +191,26 @@
                                 <label>ชื่อทีม</label>
                                 <input type="text" name="team-name" placeholder="ชื่อทีม ex. MoZaA">
                             </div>
-                            <div class="field">
-                                <label>โรงเรียน</label>
-                                <input type="text" name="school" placeholder="โรงเรียน ex. โรงเรียนสวนกุหลาบวิทยาลัย">
+                            <div class="two fields">
+                                <div class="field">
+                                    <label>โรงเรียน</label>
+                                    <input type="text" name="school" placeholder="โรงเรียน ex. โรงเรียนสวนกุหลาบวิทยาลัย">
+                                </div>
+                                <div class="field">
+                                    <label>ภาษาที่ต้องการใช้ในการแข่งขัน</label>
+                                    <div class="ui selection dropdown">
+                                        <input type="hidden" name="programming-language">
+                                        <i class="dropdown icon"></i>
+                                        <div class="default text">ภาษา</div>
+                                        <div class="menu">
+                                            <div class="item" data-value="C">C</div>
+                                            <div class="item" data-value="C++">C++</div>
+                                            <div class="item" data-value="Java">Java</div>
+                                            <div class="item" data-value="Python 2">Python 2</div>
+                                            <div class="item" data-value="Python 3">Python 3</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="two fields">
                                 <div class="field">
@@ -375,7 +394,8 @@
                             <div class="field">
                                 <div class="ui checkbox">
                                     <input type="checkbox" tabindex="0" class="hidden">
-                                    <label>ข้าพเจ้ายอมรับข้อกำหนด กฎ กติกา และเงื่อนไขการแข่งขัน และขอยืนยันว่าข้อมูลทุกอย่างเป็นความจริง</label>
+                                    <label>ข้าพเจ้ายอมรับข้อกำหนด กฎ กติกา และเงื่อนไขการแข่งขัน
+                                        และขอยืนยันว่าข้อมูลทุกอย่างเป็นความจริง</label>
                                 </div>
                             </div>
                             <button class="ui button green" type="submit">Submit</button>
@@ -399,7 +419,7 @@
             .checkbox();
         $('.dropdown')
             .dropdown();
-        $(function($) {
+        $(function ($) {
             $("#tel-t").mask("099-999-9999");
             $("#tel-one").mask("099-999-9999");
             $("#tel-two").mask("099-999-9999");
