@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Standard Meta -->
+    {{> meta_data}}
+
+    <!-- Site Icons -->
+    {{> meta_icon}}
+
+    <!-- Include Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+
+    <!-- Site Properties -->
+    <title>Suankularb Computer Week 2016</title>
+    {{> link_css}}
+
+    <!-- Include CSS -->
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="dist/components/visibility.js"></script>
+    <script src="dist/components/sidebar.js"></script>
+    <script src="dist/components/transition.js"></script>
+    <script>
+        $(document)
+            .ready(function () {
+
+                // fix menu when passed
+                $('.masthead')
+                    .visibility({
+                        once: false,
+                        onBottomPassed: function () {
+                            $('.fixed.menu').transition('fade in');
+                        },
+                        onBottomPassedReverse: function () {
+                            $('.fixed.menu').transition('fade out');
+                        }
+                    });
+
+                // create sidebar and attach to menu open
+                $('.ui.sidebar')
+                    .sidebar('attach events', '.toc.item');
+
+            });
+    </script>
+</head>
+
+<body>
+
+    <!-- Bottom Left -->
+    <img src="img/black_ribbon_bottom_left.png" class="black-ribbon stick-bottom stick-left" />
+
+    <!-- Following Menu -->
+    <div class="ui medium top fixed hidden menu inverted">
+        <a class="item active">
+            <div class="ui tiny image">
+                <img src="img/logo.png">
+            </div>
+            <div class="middle aligned content left floated zero-padding">
+                Suankularb Computer Week 2016 : The Lost Joker
+            </div>
+        </a>
+        <a class="item" href="skoi.html">
+            <div class="ui mini image hide-menu">
+                <img src="img/diamond.png">
+            </div>
+            <div class="middle aligned content left floated little-padding">
+                SKOI 2016
+            </div>
+        </a>
+        <a class="item" href="skic.html">
+            <div class="ui mini image hide-menu">
+                <img src="img/club.png">
+            </div>
+            <div class="middle aligned content left floated little-padding">
+                SKIC 2016
+            </div>
+        </a>
+        <a class="item" href="skwac.html">
+            <div class="ui mini image hide-menu">
+                <img src="img/heart.png">
+            </div>
+            <div class="middle aligned content left floated little-padding">
+                SKWAC 2016
+            </div>
+        </a>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <div class="ui vertical inverted sidebar menu items">
+        <div class="item zero-margin">
+            <div class="ui mini image">
+                <img src="img/logo.png" alt="Main Logo">
+            </div>
+        </div>
+        <a class="item active zero-margin">
+            <div class="middle aligned content centered aligned floated more-padding">
+                Suankularb Computer Week 2016 : The Lost Joker
+            </div>
+        </a>
+        <a class="item zero-margin" href="skoi.html">
+            <div class="middle aligned content centered floated more-padding">
+                SKOI 2016
+            </div>
+        </a>
+        <a class="item zero-margin" href="skic.html">
+            <div class="middle aligned content centered floated more-padding">
+                SKIC 2016
+            </div>
+        </a>
+        <a class="item zero-margin" href="skwac.html">
+            <div class="middle aligned content centered floated more-padding">
+                SKWAC 2016
+            </div>
+        </a>
+    </div>
+
+
+    <!-- Page Contents -->
+    <div class="pusher">
+        <div class="ui inverted vertical masthead center aligned segment items">
+
+            <div class="ui container">
+                <div class="ui large inverted secondary pointing menu">
+                    <a class="item active">
+                        <div class="ui tiny image">
+                            <img src="img/logo.png">
+                        </div>
+                        <div class="middle aligned content left floated zero-padding">
+                            Suankularb Computer Week 2016 : The Lost Joker
+                        </div>
+                    </a>
+                    <a class="item" href="skoi.html">
+                        <div class="ui mini image hide-menu">
+                            <img src="img/diamond.png">
+                        </div>
+                        <div class="middle aligned content left floated little-padding">
+                            SKOI 2016
+                        </div>
+                    </a>
+                    <a class="item" href="skic.html">
+                        <div class="ui mini image hide-menu">
+                            <img src="img/club.png">
+                        </div>
+                        <div class="middle aligned content left floated little-padding">
+                            SKIC 2016
+                        </div>
+                    </a>
+                    <a class="item" href="skwac.html">
+                        <div class="ui mini image hide-menu">
+                            <img src="img/heart.png">
+                        </div>
+                        <div class="middle aligned content left floated little-padding">
+                            SKWAC 2016
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="ui text container slideInUp animated">
+                <img class="ui huge centered image zoomIn animated" src="img/logo.png" alt="Logo">
+                <h1 class="ui inverted header slideInUp animated gold">Computer Week 2016</h1>
+                <h2>"The Lost Joker"</h2>
+                <p>
+                    เตรียมตัวพบกับนิทรรศการ และการแแข่งขันสุดเร้าใจในสัปดาห์คอมพิวเตอร์ โรงเรียนสวนกุหลาบวิทยาลัย 2016
+                    ซึ่งในปีนี้ก็มาพร้อมกับธีม The Lost Joker ที่ทุก ๆ คนมาตามหา Joker ที่หายตัวไป ในนิทรรศการสุดสนุก ๆ
+                    ที่มาพร้อมได้ความรู้ดี ๆ และการแข่งขันสุดมันสำหรับนักเรียนระดับชั้นมัธยมศึกษา
+                    ที่มีเงินรางวัลมูลค่ารวมกว่า 26,000 บาท
+                    พร้อมของรางวัลสุดพิเศษติดไม้ติดมือกลับกันกันทุกคนอย่างแน่นอน
+                </p>
+            </div>
+
+        </div>
+
+        <div class="ui inverted basic fluid segment div">
+            <div class="ui fluid container">
+                <img class="ui fluid image" src="img/div.png" />
+            </div>
+        </div>
+
+        <div class="ui vertical stripe segment">
+            <div class="ui middle aligned stackable grid container">
+                <div class="row">
+                    <div class="eight wide right floated column">
+                        <img src="img/ex.png" class="ui huge image">
+                    </div>
+                    <div class="eight wide column">
+                        <h3 class="ui header">Exhibitions</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed rhoncus neque.
+                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                            egestas. Maecenas sed ultricies velit.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui inverted basic fluid segment fdiv">
+            <div class="ui fluid container">
+                <img class="ui fluid image" src="img/div.png" />
+            </div>
+        </div>
+
+        <div class="ui vertical inverted stripe quote segment">
+            <div class="ui equal width stackable internally celled grid">
+                <div class="center aligned row">
+                    <div class="column">
+                        <img class="ui image" src="img/skoi.png" alt="skoi">
+                        <h3>Suankularb Olympiad in <br class="hide-content" />Informatics 2016</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed rhoncus neque.
+                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                            egestas. Maecenas sed ultricies velit.
+                        </p>
+                        <a class="ui button" href="skoi.html">
+                            <p>
+                                ข้อมูลเพิ่มเติม
+                            </p>
+                        </a>
+                    </div>
+                    <div class="column">
+                        <img class="ui image" src="img/skic.png" alt="skoi">
+                        <h3>Suankularb Information and technology Contest 2016</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed rhoncus neque.
+                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                            egestas. Maecenas sed ultricies velit.
+                        </p>
+                        <a class="ui button" href="skic.html">
+                            <p>
+                                ข้อมูลเพิ่มเติม
+                            </p>
+                        </a>
+                    </div>
+                    <div class="column">
+                        <img class="ui image" src="img/skwac.png" alt="skoi">
+                        <h3>Suankularb Web Application <br />Contest 2016</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed rhoncus neque.
+                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                            egestas. Maecenas sed ultricies velit.
+                        </p>
+                        <a class="ui button" href="skwac.html">
+                            <p>
+                                ข้อมูลเพิ่มเติม
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{> footer}}
+    </div>
+
+</body>
+
+</html>
