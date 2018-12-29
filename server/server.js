@@ -32,9 +32,13 @@ app.get("/register", (req, res) => res.render("register"));
 app.post("/register", (req, res) => res.send("OK"));
 
 app.get("/test", (req, res) => {
-  knex.raw("SELECT * FROM sit_code_teams").then(teams => {
-    res.send(teams[0]);
-  });
+  knex
+    .select("name")
+    .from("sit_code_teams")
+    .where('name', 'like', '%team%')
+    .then(teams => {
+      res.send(teams);
+    });
 });
 
 app.listen(process.env.PORT, () =>
