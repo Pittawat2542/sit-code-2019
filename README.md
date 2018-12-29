@@ -38,6 +38,12 @@ If you want the seed data, run the script (only available in `development` mode)
 knex seed:run
 ```
 
+Change directory back to the project
+
+```
+cd ..
+```
+
 Start the project with
 
 ```
