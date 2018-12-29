@@ -49,6 +49,12 @@ app.get("/test/form", (req, res) => {
   res.render("form-test");
 });
 
+app.get("/test/map", (req, res) => {
+  res.render("map-test", {
+    GOOGLE_MAP_API_KEY: process.env.GOOGLE_MAP_API_KEY
+  })
+})
+
 app.post("/test", (req, res) => {
   knex("sit_code_teams").insert(req.body).then(() => console.log("OK"));
 });
