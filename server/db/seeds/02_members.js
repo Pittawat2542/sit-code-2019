@@ -6,7 +6,6 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex("sit_code_members").insert([
         {
-          id: 1,
           name_prefix: "นาย",
           first_name: "รักชาติ",
           last_name: "ประเทศไทย",
@@ -16,7 +15,6 @@ exports.seed = function(knex, Promise) {
           team_id: 1
         },
         {
-          id: 2,
           name_prefix: "นาย",
           first_name: "รักชาติ 2",
           last_name: "ประเทศไทย 2",
@@ -26,7 +24,6 @@ exports.seed = function(knex, Promise) {
           team_id: 1
         },
         {
-          id: 3,
           name_prefix: "นาย",
           first_name: "รักชาติ 3",
           last_name: "ประเทศไทย 3",

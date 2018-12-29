@@ -7,7 +7,7 @@ const hbs = require("hbs");
 
 const path = require("path");
 
-const { knex } = require("./db/knex");
+const knex = require("./db/knex");
 
 const app = express();
 const publicPath = path.join(__dirname + "/../public");
@@ -30,6 +30,12 @@ app.get("/", (req, res) => res.render("index"));
 app.get("/register", (req, res) => res.render("register"));
 
 app.post("/register", (req, res) => res.send("OK"));
+
+app.get("/test", (req, res) => {
+  knex.raw("SELECT * FROM sit_code_teams").then(teams => {
+    res.send(teams[0]);
+  });
+});
 
 app.listen(process.env.PORT, () =>
   console.log(`Server is up on port ${process.env.PORT}`)

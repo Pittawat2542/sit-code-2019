@@ -6,7 +6,6 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex("sit_code_teams").insert([
         {
-          id: 1,
           name: "Team A",
           school: "School A",
           teacher_name: "Teacher A",
@@ -14,7 +13,6 @@ exports.seed = function(knex, Promise) {
           programming_language: "C"
         },
         {
-          id: 2,
           name: "Team B",
           school: "School B",
           teacher_name: "Teacher B",
@@ -22,7 +20,6 @@ exports.seed = function(knex, Promise) {
           programming_language: "Java"
         },
         {
-          id: 3,
           name: "Team C",
           school: "School C",
           teacher_name: "Teacher C",

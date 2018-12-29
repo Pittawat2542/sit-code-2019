@@ -13,7 +13,8 @@ exports.up = function(knex, Promise) {
         .string("programming_language")
         .notNullable()
         .defaultTo("C");
-      table.timestamps();
+      table.timestamp("created_at").defaultTo(knex.fn.now());
+      table.timestamp("updated_at").defaultTo(knex.fn.now());
     })
     .createTable("sit_code_members", function(table) {
       table.increments("id");
@@ -27,8 +28,10 @@ exports.up = function(knex, Promise) {
       table
         .foreign("team_id")
         .references("id")
-        .inTable("sit_code_teams").onD;
-      table.timestamps();
+        .inTable("sit_code_teams")
+        .onDelete("CASCADE");
+      table.timestamp("created_at").defaultTo(knex.fn.now());
+      table.timestamp("updated_at").defaultTo(knex.fn.now());
     });
 };
 
