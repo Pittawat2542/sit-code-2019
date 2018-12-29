@@ -25,20 +25,32 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Routes
 
-app.get("/", (req, res) => res.render("index"));
+app.get("/", (req, res) =>
+  res.render("index", {
+    GOOGLE_MAP_API_KEY: process.env.GOOGLE_MAP_API_KEY
+  })
+);
 
 app.get("/register", (req, res) => res.render("register"));
 
 app.post("/register", (req, res) => res.send("OK"));
 
+// TEST Routes
+
 app.get("/test", (req, res) => {
-  knex
-    .select("name")
-    .from("sit_code_teams")
-    .where('name', 'like', '%team%')
+  knex("sit_code_teams")
+    .select()
     .then(teams => {
       res.send(teams);
     });
+});
+
+app.get("/test/form", (req, res) => {
+  res.render("form-test");
+});
+
+app.post("/test", (req, res) => {
+  knex("sit_code_teams").insert(req.body).then(() => console.log("OK"));
 });
 
 app.listen(process.env.PORT, () =>

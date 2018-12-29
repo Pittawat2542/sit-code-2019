@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test</title>
+</head>
+
+<body>
+    <form>
+        Team name: <input type="text" name="name"><br>
+        School: <input type="text" name="school"><br>
+        Teacher name: <input type="text" name="teacher_name"><br>
+        Teacher phone number: <input type="text" name="teacher_phone_number"><br>
+        Programming Language: <select type="text" name="programming_language">
+            <option value="C">C</option>
+            <option value="C++">C++</option>
+            <option value="Java">Java</option>
+            <option value="Python 2">Python 2</option>
+            <option value="Python 3">Python 3</option>
+        </select><br>
+        <button>Submit</button>
+    </form>
+
+    <div></div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script>
+        function getFormData($form) {
+            var unindexed_array = $form.serializeArray();
+            var indexed_array = {};
+
+            $.map(unindexed_array, function (n, i) {
+                indexed_array[n['name']] = n['value'];
+            });
+
+            return indexed_array;
+        }
+
+        $(function () {
+            $("button").click(function (e) {
+                e.preventDefault()
+                var data = getFormData($("form"));
+
+                $.ajax({
+                    url: "/test",
+                    method: "POST",
+                    data: data,
+                    success: function (result) {
+                        console.log(result)
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
