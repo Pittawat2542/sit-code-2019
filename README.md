@@ -8,10 +8,34 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
-Clone the project and run the script
+Clone the project and run the script to install all dependencies.
 
 ```
 yarn
+```
+
+Install `knex` 
+
+```
+yarn global add knex
+```
+
+Change directory to `server`
+
+```
+cd server
+```
+
+Migrate the database
+
+```
+knex migrate:latest
+```
+
+If you want the seed data, run the script (only available in `development` mode)
+
+```
+knex seed:run
 ```
 
 Start the project with
