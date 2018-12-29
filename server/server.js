@@ -2,6 +2,7 @@ require("./config/config");
 
 const _ = require("lodash");
 const express = require("express");
+const bodyParser = require("body-parser");
 const hbs = require("hbs");
 
 const path = require("path");
@@ -19,6 +20,8 @@ hbs.registerPartials(partialsPath);
 app.set("view engine", "hbs");
 app.set("views", viewPath);
 app.use(express.static(publicPath));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Routes
 
@@ -26,7 +29,7 @@ app.get("/", (req, res) => res.render("index"));
 
 app.get("/register", (req, res) => res.render("register"));
 
-app.post("/register", (req, res) => res.send("OK"))
+app.post("/register", (req, res) => res.send("OK"));
 
 app.listen(process.env.PORT, () =>
   console.log(`Server is up on port ${process.env.PORT}`)
