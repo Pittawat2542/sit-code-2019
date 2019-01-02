@@ -17,29 +17,14 @@
 
     <!-- Page Contents -->
     <div class="pusher">
-        <div class="ui inverted vertical masthead center aligned segment">
-
-            <div class="ui container">
-                <div class="ui large secondary inverted pointing menu">
-                    <a class="toc item">
-                        <i class="sidebar icon"></i>
-                    </a>
-                    <a class="active item">Home</a>
-                    <a class="item">Work</a>
-                    <a class="item">Company</a>
-                    <a class="item">Careers</a>
-                    <div class="right item">
-                        <a class="ui inverted button" href="/register">สมัครเข้าร่วมการแข่งขัน</a>
-                    </div>
-                </div>
-            </div>
+        <div class="ui inverted vertical center aligned segment">
 
             <div class="ui text container">
-                <h1 class="ui inverted header">
-                    Imagine-a-Company
-                </h1>
-                <h2>Do whatever you want when you want to.</h2>
-                <div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>
+                <a href="https://sitcode.sit.kmutt.ac.th">
+                    <h1 class="ui header special">
+                        < SITCODE 2019 />
+                    </h1>
+                </a>
             </div>
 
         </div>
@@ -48,49 +33,181 @@
             <div class="ui middle aligned stackable grid container">
                 <div class="row">
                     <div class="column">
+                        <h1 class="ui header center aligned">ลงทะเบียน</h1>
                         <form class="ui form">
-                            <h4 class="ui dividing header">Tell us about yourself</h4>
+                            <h2 class="ui dividing header">รายละเอียดทีม</h2>
                             <div class="two fields">
                                 <div class="field">
-                                    <label>Name</label>
-                                    <input placeholder="First Name" name="name" type="text">
+                                    <label>ชื่อทีม</label>
+                                    <input placeholder="ชื่อทีม ex. Team BIII" name="team_name" type="text">
                                 </div>
                                 <div class="field">
-                                    <label>Gender</label>
-                                    <select class="ui dropdown" name="gender">
-                                        <option value="">Gender</option>
-                                        <option value="male">Male</option>
-                                        <option value="female">Female</option>
+                                    <label>ภาษาที่ต้องการใช้ในการแข่งขัน</label>
+                                    <select class="ui dropdown" name="team_programming_language">
+                                        <option value="">Programming Language</option>
+                                        <option value="C">C</option>
+                                        <option value="C++">C++</option>
+                                        <option value="Java">Java</option>
+                                        <option value="Python2">Python 2</option>
+                                        <option value="Python3">Python 3</option>
                                     </select>
                                 </div>
                             </div>
+                            <div class="field">
+                                <label>โรงเรียน</label>
+                                <input placeholder="โรงเรียน ex. โรงเรียน SIT48" name="team_school" type="text">
+                            </div>
                             <div class="two fields">
                                 <div class="field">
-                                    <label>Username</label>
-                                    <input placeholder="Username" name="username" type="text">
+                                    <label>ชื่อ - สกุลอาจารย์ผู้ควบคุมทีม</label>
+                                    <input placeholder="ชื่อ - สกุลอาจารย์ ex. นายรักชาติ อย่างยิ่ง" name="team_teacher"
+                                        type="text">
                                 </div>
                                 <div class="field">
-                                    <label>Password</label>
-                                    <input type="password" name="password">
+                                    <label>เบอร์โทรศัพท์อาจารย์ผู้ควบคุมทีม</label>
+                                    <input placeholder="เบอร์โทรศัพท์อาจารย์ ex. 081-2345-678" name="team_phone" type="tel">
                                 </div>
                             </div>
-                            <div class="field">
-                                <label>Skills</label>
-                                <select name="skills" multiple="" class="ui dropdown">
-                                    <option value="">Select Skills</option>
-                                    <option value="css">CSS</option>
-                                    <option value="html">HTML</option>
-                                    <option value="javascript">Javascript</option>
-                                    <option value="design">Graphic Design</option>
-                                    <option value="plumbing">Plumbing</option>
-                                    <option value="mech">Mechanical Engineering</option>
-                                    <option value="repair">Kitchen Repair</option>
-                                </select>
+
+                            <hr class="ui hidden divider">
+
+                            <h2 class="ui dividing header">รายละเอียดผู้เข้าแข่งขันคนที่ 1 (หัวหน้าทีม)</h2>
+                            <div class="three fields">
+                                <div class="field">
+                                    <label>คำนำหน้านาม</label>
+                                    <select class="ui dropdown" name="first_name_prefix">
+                                        <option value="">คำนำหน้านาม</option>
+                                        <option value="เด็กชาย">เด็กชาย</option>
+                                        <option value="เด็กหญิง">เด็กหญิง</option>
+                                        <option value="นาย">นาย</option>
+                                        <option value="นาง">นาง</option>
+                                        <option value="นางสาว">นางสาว</option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label>ชื่อ</label>
+                                    <input placeholder="ชื่อ ex. ปกป้อง" type="text" name="first_name">
+                                </div>
+                                <div class="field">
+                                    <label>นามสกุล</label>
+                                    <input placeholder="นามสกุล ex. ใจกล้า" type="text" name="first_surname">
+                                </div>
                             </div>
+                            <div class="three fields">
+                                <div class="field">
+                                    <label>ระดับชั้น</label>
+                                    <select class="ui dropdown" name="first_grade">
+                                        <option value="">ระดับชั้น</option>
+                                        <option value="ม.4">ม.4</option>
+                                        <option value="ม.5">ม.5</option>
+                                        <option value="ม.6">ม.6</option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label>เบอร์โทรศัพท์</label>
+                                    <input placeholder="เบอร์โทรศัพท์ ex. 081-2345-678" type="tel" name="first_phone">
+                                </div>
+                                <div class="field">
+                                    <label>Email</label>
+                                    <input placeholder="Email ex. info@sit.kmutt.ac.th" type="email" name="first_email">
+                                </div>
+                            </div>
+
+                            <hr class="ui hidden divider">
+
+                            <h2 class="ui dividing header">รายละเอียดผู้เข้าแข่งขันคนที่ 2</h2>
+                            <div class="three fields">
+                                <div class="field">
+                                    <label>คำนำหน้านาม</label>
+                                    <select class="ui dropdown" name="second_name_prefix">
+                                        <option value="">คำนำหน้านาม</option>
+                                        <option value="เด็กชาย">เด็กชาย</option>
+                                        <option value="เด็กหญิง">เด็กหญิง</option>
+                                        <option value="นาย">นาย</option>
+                                        <option value="นาง">นาง</option>
+                                        <option value="นางสาว">นางสาว</option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label>ชื่อ</label>
+                                    <input placeholder="ชื่อ ex. ปกป้อง" type="text" name="second_name">
+                                </div>
+                                <div class="field">
+                                    <label>นามสกุล</label>
+                                    <input placeholder="นามสกุล ex. ใจกล้า" type="text" name="second_surname">
+                                </div>
+                            </div>
+                            <div class="three fields">
+                                <div class="field">
+                                    <label>ระดับชั้น</label>
+                                    <select class="ui dropdown" name="second_grade">
+                                        <option value="">ระดับชั้น</option>
+                                        <option value="ม.4">ม.4</option>
+                                        <option value="ม.5">ม.5</option>
+                                        <option value="ม.6">ม.6</option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label>เบอร์โทรศัพท์</label>
+                                    <input placeholder="เบอร์โทรศัพท์ ex. 081-2345-678" type="tel" name="second_phone">
+                                </div>
+                                <div class="field">
+                                    <label>Email</label>
+                                    <input placeholder="Email ex. info@sit.kmutt.ac.th" type="email" name="second_email">
+                                </div>
+                            </div>
+
+                            <hr class="ui hidden divider">
+
+                            <h2 class="ui dividing header">รายละเอียดผู้เข้าแข่งขันคนที่ 3</h2>
+                            <div class="three fields">
+                                <div class="field">
+                                    <label>คำนำหน้านาม</label>
+                                    <select class="ui dropdown" name="third_name_prefix">
+                                        <option value="">คำนำหน้านาม</option>
+                                        <option value="เด็กชาย">เด็กชาย</option>
+                                        <option value="เด็กหญิง">เด็กหญิง</option>
+                                        <option value="นาย">นาย</option>
+                                        <option value="นาง">นาง</option>
+                                        <option value="นางสาว">นางสาว</option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label>ชื่อ</label>
+                                    <input placeholder="ชื่อ ex. ปกป้อง" type="text" name="third_name">
+                                </div>
+                                <div class="field">
+                                    <label>นามสกุล</label>
+                                    <input placeholder="นามสกุล ex. ใจกล้า" type="text" name="third_surname">
+                                </div>
+                            </div>
+                            <div class="three fields">
+                                <div class="field">
+                                    <label>ระดับชั้น</label>
+                                    <select class="ui dropdown" name="third_grade">
+                                        <option value="">ระดับชั้น</option>
+                                        <option value="ม.4">ม.4</option>
+                                        <option value="ม.5">ม.5</option>
+                                        <option value="ม.6">ม.6</option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label>เบอร์โทรศัพท์</label>
+                                    <input placeholder="เบอร์โทรศัพท์ ex. 081-2345-678" type="tel" name="third_phone">
+                                </div>
+                                <div class="field">
+                                    <label>Email</label>
+                                    <input placeholder="Email ex. info@sit.kmutt.ac.th" type="email" name="third_email">
+                                </div>
+                            </div>
+
+                            <hr class="ui divider">
+
                             <div class="inline field">
                                 <div class="ui checkbox">
                                     <input type="checkbox" name="terms">
-                                    <label>I agree to the terms and conditions</label>
+                                    <label>ข้าพเจ้ายอมรับว่า ข้าพเจ้าได้อ่านรายะเอียด เงื่อนไข กติกาการแข่งขันทั้งหมด
+                                        และจะปฏิบัติตาม และขอยืนยันว่าข้อมูลทั้งหมดเป็นความจริง</label>
                                 </div>
                             </div>
                             <div class="ui primary submit button">Submit</div>
@@ -104,85 +221,11 @@
         {{> footer }}
     </div>
 
-    <!-- Test -->
-
+    <script src="js/form-input-pattern.js"></script>
+    <script src="js/form-validators.js"></script>
     <script>
-        $('.dropdown')
-            .dropdown()
-            ;
-        $('.checkbox')
-            .checkbox()
-            ;
-        /* new Cleave('#tel-1', {
-            numericOnly: true,
-            prefix: '0',
-            delimiters: ['-', '-', '-'],
-            blocks: [2, 4, 3]
-        }); */
-        $('.ui.form')
-            .form({
-                fields: {
-                    name: {
-                        identifier: 'name',
-                        rules: [
-                            {
-                                type: 'empty',
-                                prompt: 'Please enter your name'
-                            }
-                        ]
-                    },
-                    skills: {
-                        identifier: 'skills',
-                        rules: [
-                            {
-                                type: 'minCount[2]',
-                                prompt: 'Please select at least two skills'
-                            }
-                        ]
-                    },
-                    gender: {
-                        identifier: 'gender',
-                        rules: [
-                            {
-                                type: 'empty',
-                                prompt: 'Please select a gender'
-                            }
-                        ]
-                    },
-                    username: {
-                        identifier: 'username',
-                        rules: [
-                            {
-                                type: 'empty',
-                                prompt: 'Please enter a username'
-                            }
-                        ]
-                    },
-                    password: {
-                        identifier: 'password',
-                        rules: [
-                            {
-                                type: 'empty',
-                                prompt: 'Please enter a password'
-                            },
-                            {
-                                type: 'minLength[6]',
-                                prompt: 'Your password must be at least {ruleValue} characters'
-                            }
-                        ]
-                    },
-                    terms: {
-                        identifier: 'terms',
-                        rules: [
-                            {
-                                type: 'checked',
-                                prompt: 'You must agree to the terms and conditions'
-                            }
-                        ]
-                    }
-                }
-            })
-            ;
+        $('.dropdown').dropdown();
+        $('.checkbox').checkbox();
     </script>
 
 </body>
