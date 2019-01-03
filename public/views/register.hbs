@@ -2,18 +2,16 @@
 <html>
 
 <head>
-    {{> meta_data}}
-    {{> meta_icon}}
+    {{> meta_data }}
+    {{> meta_icon }}
 
     <!-- Site Properties -->
-    <title>Homepage - Semantic</title>
-    {{> link_css }}
-
-    {{> script_src }}
+    <title>< SITCODE 2019 /> - Register</title>
+    {{> link_css_form }}
 </head>
 
 <body>
-    {{> menu_index}}
+    {{> menu_index }}
 
     <!-- Page Contents -->
     <div class="pusher">
@@ -221,13 +219,7 @@
         {{> footer }}
     </div>
 
-    <script src="js/form-input-pattern.js"></script>
-    <script src="js/form-validators.js"></script>
-    <script>
-        $('.dropdown').dropdown();
-        $('.checkbox').checkbox();
-    </script>
-
+    {{> script_src_form }}
 </body>
 
 </html>

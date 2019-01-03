@@ -2,18 +2,16 @@
 <html>
 
 <head>
-    {{> meta_data}}
-    {{> meta_icon}}
+    {{> meta_data }}
+    {{> meta_icon }}
 
     <!-- Site Properties -->
-    <title>Homepage - Semantic</title>
-    {{> link_css }}
-
-    {{> script_src }}
+    <title>< SITCODE 2019 /></title>
+    {{> link_css_index }}
 </head>
 
 <body>
-    {{> menu_index}}
+    {{> menu_index }}
 
     <!-- Page Contents -->
     <div class="pusher">
@@ -24,14 +22,14 @@
                     <a class="toc item">
                         <i class="sidebar icon"></i>
                     </a>
-                    <a class="item">กติกา</a>
-                    <a class="item">รูปแบบ</a>
-                    <a class="item">รางวัล</a>
-                    <a class="item">กำหนดการ</a>
-                    <a class="item">สถานที่</a>
-                    <a class="item">เอกสาร</a>
+                    <a class="item" href="#rule-section">กติกา</a>
+                    <a class="item" href="#compete-section">รูปแบบ</a>
+                    <a class="item" href="#reward-section">รางวัล</a>
+                    <a class="item" href="#appointment-section">กำหนดการ</a>
+                    <a class="item" href="#location-section">สถานที่</a>
+                    <a class="item" href="#document-section">เอกสาร</a>
                     <div class="right item">
-                        <a class="ui inverted button" href="/register">สมัครเข้าร่วมการแข่งขัน</a>
+                        <a class="ui inverted primary button" href="/register">สมัครเข้าร่วมการแข่งขัน</a>
                     </div>
                 </div>
             </div>
@@ -49,7 +47,7 @@
 
         </div>
 
-        <div class="ui vertical stripe segment">
+        <div class="ui vertical stripe segment" id="rule-section">
             <h2 class="ui header center aligned">กติกาและข้อกำหนดการแข่งขัน</h2>
             <div class="ui stackable middle equal width grid container">
                 <div class="row">
@@ -71,7 +69,7 @@
             </div>
         </div>
 
-        <div class="ui vertical stripe segment">
+        <div class="ui vertical stripe segment" id="compete-section">
             <h2 class="ui header center aligned">รูปแบบการแข่งขัน</h2>
             <div class="ui stackable middle equal width grid container">
                 <div class="row">
@@ -141,7 +139,7 @@
             </div>
         </div>
 
-        <h2 class="ui horizontal center aligned header divider">รางวัล</h2>
+        <h2 class="ui horizontal center aligned header divider" id="reward-section">รางวัล</h2>
         <div class="ui vertical stripe quote segment">
             <div class="ui equal width stackable internally celled grid">
                 <div class="center aligned row">
@@ -175,7 +173,7 @@
             </div>
         </div>
 
-        <div class="ui vertical stripe segment">
+        <div class="ui vertical stripe segment" id="appointment-section">
             <div class="ui stackable middle center aligned equal width grid container">
                 <h2 class="ui center aligned header">กำหนดการดำเนินกิจกรรม</h2>
                 <div class="row">
@@ -297,7 +295,7 @@
             </div>
         </div>
 
-        <div class="ui vertical stripe segment">
+        <div class="ui vertical stripe segment" id="location-section">
             <div class="ui middle aligned stackable grid container">
                 <div class="row">
                     <div class="column">
@@ -310,7 +308,7 @@
             </div>
         </div>
 
-        <div class="ui vertical stripe segment">
+        <div class="ui vertical stripe segment" id="document-section">
             <h2 class="ui center aligned header ">เอกสาร</h2>
             <div class="ui middle aligned stackable grid container">
                 <div class="row">
@@ -334,13 +332,12 @@
             </div>
         </div>
 
-        <div class="ui vertical stripe segment">
-            <h2 class="ui center aligned header ">สมัครเข้าร่วมการแข่งขัน</h2>
-            <div class="ui middle aligned stackable grid container">
+        <div class="ui vertical inverted stripe segment" id="particles-js-2">
+            <div class="ui middle inverted aligned stackable grid container" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);">
                 <div class="center aligned row">
                     <div class="column">
                         <a href="/register">
-                            <button class="ui center black massive button">สมัครเข้าร่วมการแข่งขัน</button>
+                            <button class="ui center massive inverted primary button">สมัครเข้าร่วมการแข่งขัน</button>
                         </a>
                     </div>
                 </div>
@@ -350,7 +347,7 @@
         {{> footer }}
     </div>
 
-    {{> script_src_after }}
+    {{> script_src_index }}
 
     <!-- Test -->
     <script>
