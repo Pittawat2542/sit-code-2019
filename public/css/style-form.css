@@ -1,9 +1,57 @@
+.ui.button {
+  font-family: 'Kanit', sans-serif;
+}
+
+h1.ui.header {
+  font-family: 'Kanit', sans-serif;
+}
+
+h2.ui.header {
+  font-size: 1.75em;
+  font-family: 'Kanit', sans-serif;
+}
+
+h3.ui.header {
+  font-size: 1.5em;
+  font-family: 'Kanit', sans-serif;
+}
+
+p, input, .ui.selection.dropdown .menu>.item, .default.text {
+  font-family: 'Sarabun', sans-serif;
+}
+
+.ui.form .field>label, .ui.checkbox input.hidden+label {
+  font-family: 'Kanit', sans-serif;
+  font-size: 1em;
+}
+
+::-webkit-input-placeholder {
+  font-family: 'Sarabun', sans-serif;
+}
+::-moz-placeholder {
+  font-family: 'Sarabun', sans-serif;
+}
+:-ms-input-placeholder {
+  font-family: 'Sarabun', sans-serif;
+}
+::placeholder {
+  font-family: 'Sarabun', sans-serif;
+}
+
+.ui.large.header {
+  font-family: 'Kanit', sans-serif;
+}
+
 .special {
   color: #090909;
   background-image: -webkit-linear-gradient(120deg, #f6d365 0%, #fda085 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-animation: hue 5s infinite linear;
+}
+
+h1.ui.header.special {
+  font-size: 2.3rem;
 }
 
 @-webkit-keyframes hue {
