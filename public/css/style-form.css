@@ -1,19 +1,40 @@
-.ui.button {
+#logo {
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+}
+
+.special {
+  color: #090909;
+  background-image: -webkit-linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: hue 5s infinite linear;
+}
+
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
+}
+
+.ui.header, .ui.button {
   font-family: 'Kanit', sans-serif;
 }
 
-h1.ui.header {
-  font-family: 'Kanit', sans-serif;
+h1.ui.header.special {
+  font-size: 2.3rem;
 }
 
 h2.ui.header {
-  font-size: 1.75em;
-  font-family: 'Kanit', sans-serif;
+  font-size: 1.75rem;
 }
 
 h3.ui.header {
-  font-size: 1.5em;
-  font-family: 'Kanit', sans-serif;
+  font-size: 1.5rem;
 }
 
 p, input, .ui.selection.dropdown .menu>.item, .default.text {
@@ -22,7 +43,7 @@ p, input, .ui.selection.dropdown .menu>.item, .default.text {
 
 .ui.form .field>label, .ui.checkbox input.hidden+label {
   font-family: 'Kanit', sans-serif;
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 ::-webkit-input-placeholder {
@@ -38,33 +59,14 @@ p, input, .ui.selection.dropdown .menu>.item, .default.text {
   font-family: 'Sarabun', sans-serif;
 }
 
-.ui.large.header {
+/* Sweet Alert Override Style */
+
+.swal-title {
   font-family: 'Kanit', sans-serif;
+  font-size: 1.75rem;
 }
 
-.special {
-  color: #090909;
-  background-image: -webkit-linear-gradient(120deg, #f6d365 0%, #fda085 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-animation: hue 5s infinite linear;
-}
-
-h1.ui.header.special {
-  font-size: 2.3rem;
-}
-
-@-webkit-keyframes hue {
-  from {
-    -webkit-filter: hue-rotate(0deg);
-  }
-  to {
-    -webkit-filter: hue-rotate(-360deg);
-  }
-}
-
-#logo {
-  position: fixed;
-  width: 100%;
-  z-index: 99;
+.swal-text {
+  font-family: 'Sarabun', sans-serif;
+  font-size: 1.25rem;
 }
