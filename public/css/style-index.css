@@ -39,6 +39,10 @@ th {
   font-family: "Sarabun", sans-serif;
 }
 
+p {
+  font-size: 1.25rem;
+}
+
 .ui.large.header {
   font-family: "Kanit", sans-serif;
 }
