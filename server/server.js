@@ -49,14 +49,18 @@ app.get("/test/form", (req, res) => {
   res.render("form-test");
 });
 
-app.get("/test/map", (req, res) => {
-  res.render("map-test", {
-    GOOGLE_MAP_API_KEY: process.env.GOOGLE_MAP_API_KEY
-  })
-})
-
 app.post("/test", (req, res) => {
-  knex("sit_code_teams").insert(req.body).then(() => console.log("OK"));
+  let body = req.body;
+
+  knex("sit_code_teams")
+    .insert({
+      name: body.team_name,
+      school: body.team_school,
+      teacher_name: body.team_teacher,
+      teacher_phone_number: body.team_phone,
+      programming_language: body.team_programming_language
+    })
+    .then(team_id => console.log(team_id));
 });
 
 app.listen(process.env.PORT, () =>

@@ -3,7 +3,7 @@ exports.up = function(knex, Promise) {
     .createTable("sit_code_teams", function(table) {
       table.increments();
       table
-        .string("name")
+        .string("team_name")
         .unique()
         .notNullable();
       table.string("school").notNullable();
@@ -12,7 +12,8 @@ exports.up = function(knex, Promise) {
       table
         .string("programming_language")
         .notNullable()
-        .defaultTo("C");
+        .defaultTo("Java");
+      table.string("address").notNullable();
       table.timestamp("created_at").defaultTo(knex.fn.now());
       table.timestamp("updated_at").defaultTo(knex.fn.now());
     })
@@ -25,6 +26,7 @@ exports.up = function(knex, Promise) {
       table.string("phone_number").notNullable();
       table.string("email").notNullable();
       table.integer("team_id").unsigned();
+      table.boolean("isLead").defaultTo(false);
       table
         .foreign("team_id")
         .references("id")
@@ -36,5 +38,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable("sit_code_teams").dropTable("sit_code_members");
+  return knex.schema.dropTable("sit_code_members").dropTable("sit_code_teams");
 };

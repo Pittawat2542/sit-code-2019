@@ -1,3 +1,24 @@
+.item, .ui.button {
+  font-family: 'Kanit', sans-serif;
+}
+
+h2.ui.header {
+  font-size: 2.5em;
+  font-family: 'Kanit', sans-serif;
+}
+
+p, td, th {
+  font-family: 'Sarabun', sans-serif;
+}
+
+.ui.large.header {
+  font-family: 'Kanit', sans-serif;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
 #map {
   width: 100%;
   height: 50vh;
