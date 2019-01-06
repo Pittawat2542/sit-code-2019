@@ -93,19 +93,80 @@ app.post("/register", async (req, res) => {
   }
 });
 
-// app.get("/announcement", async (req, res) => {
-//   let data = await knex("sit_code_teams").select("team_name", "school");
-//   let arr = [];
-//   data.map(item =>
-//     arr.push({ team_name: item.team_name, team_school: item.school })
-//   );
+app.get("/announcement", async (req, res) => {
+  let data = await knex("sit_code_teams").select("team_name", "school");
+  let arr = [];
+  data.map(item =>
+    arr.push({ team_name: item.team_name, team_school: item.school })
+  );
 
-//   res.render("announcement", { arr });
-// });
-
-app.get("/title", (req, res) => {
-  res.render("title");
+  res.render("announcement", { arr });
 });
+
+app.get("/scoreboard", (req, res) => res.render("scoreboard"));
+
+app.get("/mockscoreboard", (req, res) => {
+  res.send([
+    {
+      rank: 1,
+      team_name: "Test",
+      question1: 10,
+      question2: 99,
+      question3: 10,
+      question4: 10,
+      question5: 10,
+      question6: 10,
+      question7: 10,
+      question8: 10,
+      question9: 10,
+      question10: 20
+    },
+    {
+      rank: 2,
+      team_name: "Test 2",
+      question1: 10,
+      question2: 10,
+      question3: 10,
+      question4: 10,
+      question5: 10,
+      question6: 10,
+      question7: 10,
+      question8: 10,
+      question9: 10,
+      question10: 10
+    },
+    {
+      rank: 3,
+      team_name: "Test 3",
+      question1: 10,
+      question2: 10,
+      question3: 10,
+      question4: 10,
+      question5: 10,
+      question6: 10,
+      question7: 10,
+      question8: 10,
+      question9: 10,
+      question10: 10
+    },
+    {
+      rank: 4,
+      team_name: "Test 4",
+      question1: 10,
+      question2: 10,
+      question3: 10,
+      question4: 10,
+      question5: 10,
+      question6: 10,
+      question7: 10,
+      question8: 10,
+      question9: 10,
+      question10: 10
+    }
+  ]);
+});
+
+app.get("/title", (req, res) => res.render("title"));
 
 app.listen(process.env.PORT, () =>
   console.log(`Server is up on port ${process.env.PORT}`)
