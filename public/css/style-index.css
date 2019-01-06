@@ -11,6 +11,12 @@
   margin-top: 10vh;
 }
 
+.blue-gradient {
+  background: -webkit-linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .main {
   font-family: "Kanit", sans-serif;
 }
@@ -33,6 +39,10 @@ h3.ui.header {
   font-family: "Kanit", sans-serif;
 }
 
+.ui.header.center.aligned {
+  margin-bottom: 2rem;
+}
+
 p,
 td,
 th {
@@ -43,12 +53,26 @@ p {
   font-size: 1.25rem;
 }
 
-.ui.large.header {
+td,
+th {
+  font-size: 1rem;
+}
+
+.ui.large.header,
+.ui.medium.header {
   font-family: "Kanit", sans-serif;
+}
+
+.ui.segment {
+  font-size: 0.9rem;
 }
 
 .underline {
   text-decoration: underline;
+}
+
+.remark {
+  font-size: 1rem !important;
 }
 
 #map {
@@ -155,7 +179,7 @@ p {
   h2.main {
     font-size: 1rem;
   }
-  
+
   p.main {
     font-size: 0.75rem;
   }
