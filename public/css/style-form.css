@@ -21,8 +21,9 @@
   }
 }
 
-.ui.header, .ui.button {
-  font-family: 'Kanit', sans-serif;
+.ui.header,
+.ui.button {
+  font-family: "Kanit", sans-serif;
 }
 
 h1.ui.header.special {
@@ -37,36 +38,41 @@ h3.ui.header {
   font-size: 1.5rem;
 }
 
-p, input, .ui.selection.dropdown .menu>.item, .default.text {
-  font-family: 'Sarabun', sans-serif;
+p,
+input,
+li,
+.ui.selection.dropdown .menu > .item,
+.default.text {
+  font-family: "Sarabun", sans-serif;
 }
 
-.ui.form .field>label, .ui.checkbox input.hidden+label {
-  font-family: 'Kanit', sans-serif;
+.ui.form .field > label,
+.ui.checkbox input.hidden + label {
+  font-family: "Kanit", sans-serif;
   font-size: 1rem;
 }
 
 ::-webkit-input-placeholder {
-  font-family: 'Sarabun', sans-serif;
+  font-family: "Sarabun", sans-serif;
 }
 ::-moz-placeholder {
-  font-family: 'Sarabun', sans-serif;
+  font-family: "Sarabun", sans-serif;
 }
 :-ms-input-placeholder {
-  font-family: 'Sarabun', sans-serif;
+  font-family: "Sarabun", sans-serif;
 }
 ::placeholder {
-  font-family: 'Sarabun', sans-serif;
+  font-family: "Sarabun", sans-serif;
 }
 
 /* Sweet Alert Override Style */
 
 .swal-title {
-  font-family: 'Kanit', sans-serif;
+  font-family: "Kanit", sans-serif;
   font-size: 1.75rem;
 }
 
 .swal-text {
-  font-family: 'Sarabun', sans-serif;
+  font-family: "Sarabun", sans-serif;
   font-size: 1.25rem;
 }

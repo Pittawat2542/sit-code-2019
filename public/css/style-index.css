@@ -58,6 +58,25 @@ th {
   font-size: 1rem;
 }
 
+.ui.inverted.primary.button,
+.ui.inverted.primary.buttons .button {
+  background: -webkit-linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-shadow: 0 0 0 2px -webkit-linear-gradient(
+      120deg,
+      #89f7fe 0%,
+      #66a6ff 100%
+    ) inset !important;
+  box-shadow: 0 0 0 2px -webkit-linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+}
+
+.ui.inverted.primary.button:hover,
+.ui.inverted.primary.buttons .button:hover {
+  background: -webkit-linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+  -webkit-text-fill-color: white;
+}
+
 .ui.large.header,
 .ui.medium.header {
   font-family: "Kanit", sans-serif;
