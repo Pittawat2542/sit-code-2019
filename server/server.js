@@ -4,6 +4,8 @@ const _ = require("lodash");
 const express = require("express");
 const bodyParser = require("body-parser");
 const hbs = require("hbs");
+const helmet = require("helmet");
+const compression = require("compression");
 
 const path = require("path");
 
@@ -26,6 +28,10 @@ app.set("views", viewPath);
 app.use(express.static(publicPath));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(helmet());
+app.use(compression());
+
+app.disable("x-powered-by");
 
 // Routes
 
@@ -50,12 +56,12 @@ app.post("/register", async (req, res) => {
 
   try {
     teamId = await knex("sit_code_teams").insert({
-      team_name: body.team_name,
-      school: body.team_school,
-      teacher_name: body.team_teacher,
+      team_name: body.team_name.trim(),
+      school: body.team_school.trim(),
+      teacher_name: body.team_teacher.trim(),
       teacher_phone_number: body.team_phone,
       programming_language: body.team_programming_language,
-      address: body.team_address
+      address: body.team_address.trim()
     });
   } catch (error) {
     return res.status(400).send(error.code);
@@ -64,11 +70,11 @@ app.post("/register", async (req, res) => {
   try {
     firstMember = await knex("sit_code_members").insert({
       name_prefix: body.first_name_prefix,
-      first_name: body.first_name,
-      last_name: body.first_surname,
+      first_name: body.first_name.trim(),
+      last_name: body.first_surname.trim(),
       grade_level: body.first_grade,
       phone_number: body.first_phone,
-      email: body.first_email,
+      email: body.first_email.trim(),
       team_id: teamId,
       isLead: true
     });
@@ -79,11 +85,11 @@ app.post("/register", async (req, res) => {
   try {
     secondMember = await knex("sit_code_members").insert({
       name_prefix: body.second_name_prefix,
-      first_name: body.second_name,
-      last_name: body.second_surname,
+      first_name: body.second_name.trim(),
+      last_name: body.second_surname.trim(),
       grade_level: body.second_grade,
       phone_number: body.second_phone,
-      email: body.second_email,
+      email: body.second_email.trim(),
       team_id: teamId
     });
   } catch (error) {
@@ -93,11 +99,11 @@ app.post("/register", async (req, res) => {
   try {
     thirdMember = await knex("sit_code_members").insert({
       name_prefix: body.third_name_prefix,
-      first_name: body.third_name,
-      last_name: body.third_surname,
+      first_name: body.third_name.trim(),
+      last_name: body.third_surname.trim(),
       grade_level: body.third_grade,
       phone_number: body.third_phone,
-      email: body.third_email,
+      email: body.third_email.trim(),
       team_id: teamId
     });
   } catch (error) {
