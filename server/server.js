@@ -46,50 +46,68 @@ app.post("/register", async (req, res) => {
     if (!value) return res.status(400).send();
   }
 
-  let teamId = await knex("sit_code_teams").insert({
-    team_name: body.team_name,
-    school: body.team_school,
-    teacher_name: body.team_teacher,
-    teacher_phone_number: body.team_phone,
-    programming_language: body.team_programming_language,
-    address: body.team_address
-  });
+  let teamId, firstMember, secondMember, thirdMember;
 
-  let firstMember = await knex("sit_code_members").insert({
-    name_prefix: body.first_name_prefix,
-    first_name: body.first_name,
-    last_name: body.first_surname,
-    grade_level: body.first_grade,
-    phone_number: body.first_phone,
-    email: body.first_email,
-    team_id: teamId,
-    isLead: true
-  });
+  try {
+    teamId = await knex("sit_code_teams").insert({
+      team_name: body.team_name,
+      school: body.team_school,
+      teacher_name: body.team_teacher,
+      teacher_phone_number: body.team_phone,
+      programming_language: body.team_programming_language,
+      address: body.team_address
+    });
+  } catch (error) {
+    return res.status(400).send(error.code);
+  }
 
-  let secondMember = await knex("sit_code_members").insert({
-    name_prefix: body.second_name_prefix,
-    first_name: body.second_name,
-    last_name: body.second_surname,
-    grade_level: body.second_grade,
-    phone_number: body.second_phone,
-    email: body.second_email,
-    team_id: teamId
-  });
+  try {
+    firstMember = await knex("sit_code_members").insert({
+      name_prefix: body.first_name_prefix,
+      first_name: body.first_name,
+      last_name: body.first_surname,
+      grade_level: body.first_grade,
+      phone_number: body.first_phone,
+      email: body.first_email,
+      team_id: teamId,
+      isLead: true
+    });
+  } catch (error) {
+    return res.status(400).send(error.code);
+  }
 
-  let thirdMember = await knex("sit_code_members").insert({
-    name_prefix: body.third_name_prefix,
-    first_name: body.third_name,
-    last_name: body.third_surname,
-    grade_level: body.third_grade,
-    phone_number: body.third_phone,
-    email: body.third_email,
-    team_id: teamId
-  });
+  try {
+    secondMember = await knex("sit_code_members").insert({
+      name_prefix: body.second_name_prefix,
+      first_name: body.second_name,
+      last_name: body.second_surname,
+      grade_level: body.second_grade,
+      phone_number: body.second_phone,
+      email: body.second_email,
+      team_id: teamId
+    });
+  } catch (error) {
+    return res.status(400).send(error.code);
+  }
+
+  try {
+    thirdMember = await knex("sit_code_members").insert({
+      name_prefix: body.third_name_prefix,
+      first_name: body.third_name,
+      last_name: body.third_surname,
+      grade_level: body.third_grade,
+      phone_number: body.third_phone,
+      email: body.third_email,
+      team_id: teamId
+    });
+  } catch (error) {
+    return res.status(400).send(error.code);
+  }
 
   if (firstMember && secondMember && thirdMember) {
     return res.send("OK");
   } else {
-    return res.status("400").send();
+    return res.status(400).send();
   }
 });
 
