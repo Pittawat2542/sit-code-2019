@@ -258,6 +258,7 @@ $(".ui.form").form({
   fields: fieldsValidators,
   onSuccess: function(event, fields) {
     $(".ui.teal.submit.button").addClass("loading");
+    $(".field").addClass("disabled");
     $.ajax({
       url: "/register",
       method: "POST",
@@ -271,6 +272,7 @@ $(".ui.form").form({
       },
       error: function(jqXHR, status, err) {
         $(".ui.teal.submit.button").removeClass("loading");
+        $(".field").removeClass("disabled");
         if (jqXHR.responseText === "ER_DUP_ENTRY") {
           swal("พบข้อผิดพลาด!", "ชื่อทีมซ้ำ! กรุณาเปลี่ยนชื่อทีม แล้วลองใหม่อีกครั้ง", "error");
         } else {
