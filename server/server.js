@@ -18,6 +18,7 @@ const partialsPath = path.join(viewPath + "/partials");
 
 const openDate = new Date(2019, 0, 11, 0, 0, 0, 0);
 const closeDate = new Date(2019, 0, 18, 23, 59, 59, 0);
+const announceDate = new Date(2019, 0, 19, 18, 0, 0, 0);
 
 // Middlewares
 
@@ -41,7 +42,8 @@ app.disable("x-powered-by");
 app.get("/", (req, res) =>
   res.render("index", {
     GOOGLE_MAP_API_KEY: process.env.GOOGLE_MAP_API_KEY,
-    isOpen: !(Date.now() < openDate || Date.now() > closeDate)
+    isOpen: !(Date.now() < openDate || Date.now() > closeDate),
+    isAnnounce: Date.now() >= announceDate
   })
 );
 
@@ -132,13 +134,17 @@ app.post("/register", async (req, res) => {
 });
 
 app.get("/announcement", async (req, res) => {
-  let data = await knex("sit_code_teams").select("team_name", "school");
-  let arr = [];
-  data.map(item =>
-    arr.push({ team_name: item.team_name, team_school: item.school })
-  );
+  if (Date.now() < announceDate) {
+    res.redirect("/");
+  } else {
+    let data = await knex("sit_code_teams").select("team_name", "school");
+    let arr = [];
+    data.map(item =>
+      arr.push({ team_name: item.team_name, team_school: item.school })
+    );
 
-  res.render("announcement", { arr });
+    res.render("announcement", { arr });
+  }
 });
 
 app.get("/scoreboard", (req, res) => res.render("scoreboard"));
