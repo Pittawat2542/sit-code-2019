@@ -16,8 +16,8 @@ const publicPath = path.join(__dirname + "/../public");
 const viewPath = path.join(publicPath + "/views");
 const partialsPath = path.join(viewPath + "/partials");
 
-let openDate = new Date(2019, 0, 11, 0, 0, 0, 0);
-let closeDate = new Date(2019, 0, 18, 23, 59, 59, 0);
+const openDate = new Date(2019, 0, 11, 0, 0, 0, 0);
+const closeDate = new Date(2019, 0, 18, 23, 59, 59, 0);
 
 // Middlewares
 
@@ -47,10 +47,7 @@ app.get("/", (req, res) =>
 
 app.get("/register", (req, res) => {
   if (Date.now() < openDate || Date.now() > closeDate) {
-    res.render("index", {
-      GOOGLE_MAP_API_KEY: process.env.GOOGLE_MAP_API_KEY,
-      isOpen: false
-    });
+    res.redirect("/");
   } else {
     res.render("register");
   }
@@ -282,6 +279,8 @@ app.get("/mockscoreboard", (req, res) => {
 });
 
 app.get("/title", (req, res) => res.render("title"));
+
+app.get("*", (req, res) => res.redirect("/"));
 
 app.listen(process.env.PORT, () =>
   console.log(`Server is up on port ${process.env.PORT}`)
