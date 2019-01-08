@@ -12,9 +12,15 @@
         <a class="item" href="#appointment-section">กำหนดการ</a>
         <a class="item" href="#location-section">สถานที่</a>
         <a class="item" href="#document-section">เอกสาร</a>
+        {{#if isOpen}}
         <div class="right item">
             <a class="ui inverted primary button" href="/register">สมัครเข้าร่วมการแข่งขัน</a>
         </div>
+        {{else}}
+        <div class="right item">
+            <a class="ui inverted disabled button">เปิดรับสมัครเร็ว ๆ นี้</a>
+        </div>
+        {{/if}}
     </div>
 </div>
 
@@ -26,7 +32,13 @@
     <a class="item" href="#appointment-section">กำหนดการ</a>
     <a class="item" href="#location-section">สถานที่</a>
     <a class="item" href="#document-section">เอกสาร</a>
+    {{#if isOpen}}
     <div class="item">
         <a class="ui inverted primary button" href="/register">สมัครเข้าร่วมการแข่งขัน</a>
     </div>
+    {{else}}
+    <div class="right item">
+        <a class="ui inverted disabled button">เปิดรับสมัครเร็ว ๆ นี้</a>
+    </div>
+    {{/if}}
 </div>

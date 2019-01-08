@@ -30,17 +30,23 @@
                     <a class="item" href="#appointment-section">กำหนดการ</a>
                     <a class="item" href="#location-section">สถานที่</a>
                     <a class="item" href="#document-section">เอกสาร</a>
+                    {{#if isOpen}}
                     <div class="right item">
                         <a class="ui inverted primary button" href="/register">สมัครเข้าร่วมการแข่งขัน</a>
                     </div>
+                    {{else}}
+                    <div class="right item">
+                        <a class="ui inverted disabled button">เปิดรับสมัครเร็ว ๆ นี้</a>
+                    </div>
+                    {{/if}}
                 </div>
             </div>
 
-            <div class="ui text inverted container" id="main-container">
+            <div class="ui text inverted container" id="main-container" style=>
                 <h1 class="ui header special">
                     < SITCODE 2019 />
                 </h1>
-                <h2 class="main">คาร์โก้รีวิว หลวงตา ฟีดไฮเปอร์วันเวย์ติวเตอร์บอร์ด</h2>
+                <h2 class="main">การแข่งขันเขียนโปรแกรมคอมพิวเตอร์ระดับมัธยมศึกษาตอนปลาย</h2>
                 <p class="main">พรีเมียมเบญจมบพิตรคาราโอเกะยูโรลีเมอร์ โปรเจกต์ฮ่องเต้บัสไบโอกราวนด์
                     คลิปวอลล์มือถือดีไซน์แม็กกาซีน
                     ควีนเลิฟไลท์ ไชน่าแคมปัสวันเวย์โก๊ะหมั่นโถว โกเต็กซ์แอโรบิคแอโรบิคสโตร์โปรโมเตอร์
@@ -57,7 +63,7 @@
                         <p>เป็นการแข่งขันเขียนโปรแกรมประเภททีม สำหรับนักเรียนมัธยมศึกษาตอนปลาย
                             จำนวนสมาชิกทีมละ 3 คน</p>
                         <div class="ui large header blue-gradient">คุณสมบัติและเงื่อนไขของทีม</div>
-                        <p>1. ผู้สมัครต้องกำลังศึกษาอยู่ในระดับมัธยมศึกษาปีที่ 4 5 หรือ 6</p>
+                        <p>1. ผู้สมัครต้องกำลังศึกษาอยู่ในระดับมัธยมศึกษาตอนปลาย</p>
                         <p>2. สมาชิกทั้ง 3 คนภายในทีมต้องมาจากโรงเรียนเดียวกัน </p>
                         <p>3. แต่ละโรงเรียนมีสิทธิ์ส่งทีมเข้าร่วมแข่งขันได้ไม่จำกัดจำนวน<br>
                             <small>(ในกรณีที่มีหลายทีมจากโรงเรียนเดียวกันที่เข้ารอบขอสงวนสิทธิ์ในการคัดเลือกทีมเพียงโรงเรียนละไม่เกิน
@@ -97,7 +103,7 @@
             <div class="ui stackable middle equal width grid container">
                 <div class="row">
                     <div class="column middle aligned">
-                        <h3 class="ui header blue-gradient">รอบที่ 2.1 Semi-Final Round (รอบรองชนะเลิศ)</h3>
+                        <h3 class="ui header blue-gradient">รอบที่ Semi-Final Round (รอบรองชนะเลิศ)</h3>
                         <p>1. ชุดโจทย์ปัญหามีทั้งหมด 10 ข้อ <small>(Hard 4 ข้อ, Medium 3 ข้อ, Easy 3 ข้อ)</small>
                             ซึ่งมีความยากง่ายและเทคนิคการแก้ไขปัญหาที่แตกต่างกันไป
                             และคะแนนที่ได้แบ่งตามระดับความยาก - ง่ายของคำถาม <small>(Hard = 30, Medium = 20, Easy = 10)</small>
@@ -122,7 +128,7 @@
                         <p>7. หากพบว่ามีการดำเนินการใด ๆ ที่อาจถือว่าเป็นการทุจริตในการแข่งขัน
                             จะถือว่าทีมนั้นหมดสิทธิ์ในการเข้าร่วมโครงการทันที</p>
                     </div>
-                    <div class="column middle aligned">
+                    <div class="column middle aligned mobile-hidden">
                         <img class="ui centered large image" src="/img/coding-1.svg">
                     </div>
                 </div>
@@ -131,7 +137,7 @@
                         <img class="ui centered large image" src="/img/coding-2.svg">
                     </div>
                     <div class="column middle aligned">
-                        <h3 class="ui header blue-gradient">รอบที่ 2.2 Final Round (รอบชิงชนะเลิศ) รอการปรับแก้</h3>
+                        <h3 class="ui header blue-gradient">รอบที่ Final Round (รอบชิงชนะเลิศ)</h3>
                         <p>1. เป็นการแข่งขันแก้โจทย์ปัญหาการ Coding และส่งเฉพาะ source code เท่านั้น จำนวน 10 ข้อ</p>
                         <p>2. การส่ง source code เพื่อขึ้นคำตอบในระบบ หากผลลัพธ์ผิดจะหักคะแนนครั้งละ 5%
                             ของคะแนนรวมสำหรับข้อนั้น ๆ</p>
@@ -197,7 +203,11 @@
                     <div class="column">
                         <img class="ui small centered image" src="/img/register.svg">
                         <p class="ui medium header">รับสมัครผู้เข้าแข่งขัน</p>
+                        {{#if isOpen}}
                         <p>วันนี้ - 18 มกราคม 2562</p>
+                        {{else}}
+                        <p>11 มกราคม 2562 - 18 มกราคม 2562</p>
+                        {{/if}}
                     </div>
                     <div class="column">
                         <img class="ui small centered image" src="/img/approval.svg">
@@ -346,6 +356,7 @@
             </div>
         </div>
 
+        {{#if isOpen}}
         <div class="ui vertical inverted stripe segment" id="particles-js-2">
             <div class="ui middle inverted aligned stackable grid container" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);">
                 <div class="center aligned row">
@@ -355,6 +366,7 @@
                 </div>
             </div>
         </div>
+        {{/if}}
 
         {{> footer }}
     </div>

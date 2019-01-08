@@ -67,12 +67,12 @@ li,
 
 /* Sweet Alert Override Style */
 
-.swal-title {
+h2#swal2-title.swal2-title {
   font-family: "Kanit", sans-serif;
   font-size: 1.75rem;
 }
 
-.swal-text {
+div.swal2-content {
   font-family: "Sarabun", sans-serif;
   font-size: 1.25rem;
 }
