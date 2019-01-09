@@ -94,6 +94,10 @@ th {
   text-decoration: underline;
 }
 
+.bold {
+  font-weight: 800;
+}
+
 .remark {
   font-size: 1rem !important;
   color: red;
