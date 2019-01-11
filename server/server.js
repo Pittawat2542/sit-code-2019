@@ -43,7 +43,8 @@ app.get("/", (req, res) =>
   res.render("index", {
     GOOGLE_MAP_API_KEY: process.env.GOOGLE_MAP_API_KEY,
     isOpen: !(Date.now() < openDate || Date.now() > closeDate),
-    isAnnounce: Date.now() >= announceDate
+    isAnnounce: Date.now() >= announceDate,
+    isClose: Date.now() > closeDate
   })
 );
 

@@ -16,6 +16,10 @@
         <div class="right item">
             <a class="ui inverted primary button" href="/register">สมัครเข้าร่วมการแข่งขัน</a>
         </div>
+        {{else if isClose}}
+        <div class="right item">
+            <a class="ui inverted disabled button">ปิดรับสมัครแล้ว</a>
+        </div>
         {{else}}
         <div class="right item">
             <a class="ui inverted disabled button">เปิดรับสมัครเร็ว ๆ นี้</a>
@@ -35,6 +39,10 @@
     {{#if isOpen}}
     <div class="item">
         <a class="ui inverted primary button" href="/register">สมัครเข้าร่วมการแข่งขัน</a>
+    </div>
+    {{else if isClose}}
+    <div class="right item">
+        <a class="ui inverted disabled button">ปิดรับสมัครแล้ว</a>
     </div>
     {{else}}
     <div class="right item">
