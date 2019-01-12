@@ -148,6 +148,23 @@ app.get("/announcement", async (req, res) => {
   }
 });
 
+app.get("/team-checker", (req, res) => {
+  res.render('team-checker');
+})
+
+app.get("/team-list", async (req, res) => {
+  if (req.header("x-password-checker") !== "6p2QxYDfBQ2XjJnR5t23b6NC9qqGOLIE") {
+    return res.status("400").send();
+  }
+  let data = await knex("sit_code_teams").select("team_name", "school");
+  let arr = [];
+  data.map(item =>
+    arr.push({ team_name: item.team_name, team_school: item.school })
+  );
+
+  res.send({ arr })
+});
+
 app.get("/scoreboard", (req, res) => res.render("scoreboard"));
 
 app.get("/mockscoreboard", (req, res) => {

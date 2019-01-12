@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{> meta_data }}
+    {{> meta_icon }}
+
+    <!-- Site Properties -->
+    <title>
+        < SITCODE 2019 />
+    </title>
+    {{> link_css_index }}
+</head>
+
+<body>
+
+    <div class="pusher">
+        <div class="ui inverted vertical center aligned segment" id="logo">
+
+            <div class="ui text container">
+                <a href="https://sitcode.sit.kmutt.ac.th">
+                    <h1 class="ui header special">
+                        < SITCODE 2019 />
+                    </h1>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="ui vertical stripe segment">
+            <h2 class="ui header center aligned">รายชื่อทีมที่มีสิทธิ์เข้าร่วมการ Online Round</h2>
+            <div class="ui stackable middle equal width grid container">
+                <div class="centered row">
+                    <div class="ten wide column">
+                        <table class="ui celled blue striped selectable table">
+                            <thead>
+                                <tr>
+                                    <th class="center aligned">ลำดับ</th>
+                                    <th class="center aligned">ชื่อทีม</th>
+                                    <th>โรงเรียน</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{> footer}}
+    </div>
+
+    <script src="assets/library/jquery.min.js"></script>
+    <script src="assets/library/sweetalert.min.js"></script>
+    <script>
+        var password = prompt("Password:");
+        $.ajax({
+            url: "/team-list",
+            beforeSend: function (request) {
+                request.setRequestHeader("x-password-checker", password);
+            },
+            method: "GET",
+            timeout: 3000,
+            success: function (result) {
+                for (var i = 0; i < result.arr.length; i++) {
+                    let node = $("<tr></tr>");
+                    node.append('<td data-label="ลำดับ" class="center aligned">' + (i + 1) + '</td>');
+                    node.append('<td data-label="ชื่อทีม" class="center aligned">' + result.arr[i].team_name + '</td>');
+                    node.append('<td data-label="โรงเรียน">' + result.arr[i].team_school + '</td>');
+                    $("tbody").append(node);
+                }
+            },
+            error: function (jqXHR, status, err) {
+                swal("รหัสผ่านผิด!", "กรุณาลองใหม่อีกครั้งในภายหลัง", "error");
+            }
+        });
+    </script>
+</body>
+
+</html>
