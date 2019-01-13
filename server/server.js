@@ -58,17 +58,24 @@ app.get("/register", (req, res) => {
 
 app.post("/register", async (req, res) => {
   if (Date.now() < openDate || Date.now() > closeDate) {
-    res.status(503).send();
+    return res.status(503).send();
   } else {
     let body = req.body;
 
+    // Check if any data in the request body is empty
     for (let key in body) {
       let value = body[key];
 
       if (!value) return res.status(400).send();
     }
 
-    let teamId, firstMember, secondMember, thirdMember;
+    let data = await knex("sit_code_teams").select("team_name").where({
+      team_name: body.team_name.trim()
+    });
+
+    if (data.length !== 0) return res.status(400).send("ER_DUP_ENTRY");
+
+    let teamId;
 
     try {
       teamId = await knex("sit_code_teams").insert({
@@ -79,12 +86,8 @@ app.post("/register", async (req, res) => {
         programming_language: body.team_programming_language,
         address: body.team_address.trim()
       });
-    } catch (error) {
-      return res.status(400).send(error.code);
-    }
 
-    try {
-      firstMember = await knex("sit_code_members").insert({
+      await knex("sit_code_members").insert({
         name_prefix: body.first_name_prefix,
         first_name: body.first_name.trim(),
         last_name: body.first_surname.trim(),
@@ -94,12 +97,8 @@ app.post("/register", async (req, res) => {
         team_id: teamId,
         isLead: true
       });
-    } catch (error) {
-      return res.status(400).send(error.code);
-    }
 
-    try {
-      secondMember = await knex("sit_code_members").insert({
+      await knex("sit_code_members").insert({
         name_prefix: body.second_name_prefix,
         first_name: body.second_name.trim(),
         last_name: body.second_surname.trim(),
@@ -108,12 +107,8 @@ app.post("/register", async (req, res) => {
         email: body.second_email.trim(),
         team_id: teamId
       });
-    } catch (error) {
-      return res.status(400).send(error.code);
-    }
 
-    try {
-      thirdMember = await knex("sit_code_members").insert({
+      await knex("sit_code_members").insert({
         name_prefix: body.third_name_prefix,
         first_name: body.third_name.trim(),
         last_name: body.third_surname.trim(),
@@ -122,14 +117,10 @@ app.post("/register", async (req, res) => {
         email: body.third_email.trim(),
         team_id: teamId
       });
+
+      res.send("OK");
     } catch (error) {
       return res.status(400).send(error.code);
-    }
-
-    if (firstMember && secondMember && thirdMember) {
-      return res.send("OK");
-    } else {
-      return res.status(400).send();
     }
   }
 });
@@ -149,8 +140,8 @@ app.get("/announcement", async (req, res) => {
 });
 
 app.get("/team-checker", (req, res) => {
-  res.render('team-checker');
-})
+  res.render("team-checker");
+});
 
 app.get("/team-list", async (req, res) => {
   if (req.header("x-password-checker") !== "6p2QxYDfBQ2XjJnR5t23b6NC9qqGOLIE") {
@@ -162,7 +153,7 @@ app.get("/team-list", async (req, res) => {
     arr.push({ team_name: item.team_name, team_school: item.school })
   );
 
-  res.send({ arr })
+  res.send({ arr });
 });
 
 app.get("/scoreboard", (req, res) => res.render("scoreboard"));

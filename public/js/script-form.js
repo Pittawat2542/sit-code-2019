@@ -9,7 +9,7 @@ $(document).ready(function() {
   $(".ui.form").form({
     fields: fieldsValidators,
     onSuccess: function(event, fields) {
-      $(".ui.teal.submit.button").addClass("loading");
+      $(".ui.teal.button").addClass("loading");
       $(".field").addClass("disabled");
       $.ajax({
         url: "/register",
@@ -22,7 +22,7 @@ $(document).ready(function() {
           word.append(
             '<p>ติดต่อสอบถาม/แจ้งปัญหา: <a href="mailto:sitcode@sit.kmutt.ac.th">sitcode@sit.kmutt.ac.th</a></p>'
           );
-          $(".ui.teal.submit.button").removeClass("loading");
+          $(".ui.teal.button").removeClass("loading");
           swal({
             type: "success",
             title: "สำเร็จ!",
@@ -31,7 +31,7 @@ $(document).ready(function() {
           }).then(() => (window.location.href = "/"));
         },
         error: function(jqXHR, status, err) {
-          $(".ui.teal.submit.button").removeClass("loading");
+          $(".ui.teal.button").removeClass("loading");
           $(".field").removeClass("disabled");
           if (jqXHR.responseText === "ER_DUP_ENTRY") {
             swal(
@@ -46,7 +46,7 @@ $(document).ready(function() {
       });
     },
     onFailure: function(formErrors, fields) {
-      $(".ui.teal.submit.button").removeClass("loading");
+      $(".ui.teal.button").removeClass("loading");
     }
   });
 });
