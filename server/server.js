@@ -69,9 +69,11 @@ app.post("/register", async (req, res) => {
       if (!value) return res.status(400).send();
     }
 
-    let data = await knex("sit_code_teams").select("team_name").where({
-      team_name: body.team_name.trim()
-    });
+    let data = await knex("sit_code_teams")
+      .select("team_name")
+      .where({
+        team_name: body.team_name.trim()
+      });
 
     if (data.length !== 0) return res.status(400).send("ER_DUP_ENTRY");
 
@@ -147,10 +149,14 @@ app.get("/team-list", async (req, res) => {
   if (req.header("x-password-checker") !== "6p2QxYDfBQ2XjJnR5t23b6NC9qqGOLIE") {
     return res.status("400").send();
   }
-  let data = await knex("sit_code_teams").select("team_name", "school");
+  let data = await knex("sit_code_teams").select("id", "team_name", "school");
   let arr = [];
   data.map(item =>
-    arr.push({ team_name: item.team_name, team_school: item.school })
+    arr.push({
+      id: item.id,
+      team_name: item.team_name,
+      team_school: item.school
+    })
   );
 
   res.send({ arr });
