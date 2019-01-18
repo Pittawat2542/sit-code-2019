@@ -18,7 +18,8 @@ const partialsPath = path.join(viewPath + "/partials");
 
 const openDate = new Date(2019, 0, 11, 0, 0, 0, 0);
 const closeDate = new Date(2019, 0, 18, 23, 59, 59, 0);
-const announceDate = new Date(2019, 0, 19, 18, 0, 0, 0);
+const announceDate = new Date(2019, 0, 19, 15, 0, 0, 0);
+const onlineRoundDate = new Date(2019, 0, 19, 18, 0, 0, 0);
 
 // Middlewares
 
@@ -44,7 +45,8 @@ app.get("/", (req, res) =>
     GOOGLE_MAP_API_KEY: process.env.GOOGLE_MAP_API_KEY,
     isOpen: !(Date.now() < openDate || Date.now() > closeDate),
     isAnnounce: Date.now() >= announceDate,
-    isClose: Date.now() > closeDate
+    isClose: Date.now() > closeDate,
+    isOnlineRound: Date.now() >= onlineRoundDate,
   })
 );
 

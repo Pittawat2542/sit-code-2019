@@ -39,6 +39,15 @@ h3.ui.header {
   font-family: "Kanit", sans-serif;
 }
 
+h4.ui.header {
+  font-size: 1.25em;
+  font-family: "Kanit", sans-serif;
+}
+
+.text-red {
+  color: red !important;
+}
+
 .ui.header.center.aligned {
   margin-bottom: 2rem;
 }
