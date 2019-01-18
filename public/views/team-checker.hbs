@@ -41,7 +41,7 @@
                                     <th class="center aligned">ลำดับ</th>
                                     <th class="center aligned">id</th>
                                     <th class="center aligned">ชื่อทีม</th>
-                                    <th>โรงเรียน</th>
+                                    <th class="mobile-center">โรงเรียน</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -77,7 +77,7 @@
                     node.append('<td data-label="ลำดับ" class="center aligned">' + (i+1) + '</td>');
                     node.append('<td data-label="id" class="center aligned">' + result.arr[i].id + '</td>');
                     node.append('<td data-label="ชื่อทีม" class="center aligned">' + result.arr[i].team_name + '</td>');
-                    node.append('<td data-label="โรงเรียน">' + result.arr[i].team_school + '</td>');
+                    node.append('<td data-label="โรงเรียน" class="mobile-center">' + result.arr[i].team_school + '</td>');
                     $("tbody").append(node);
                 }
             },
