@@ -10,7 +10,7 @@
         < SITCODE 2019 />
     </title>
     {{> link_css_index }}
-    
+
     {{#if isAnnounce}}
     {{#if isOnlineRound}}
     <style>
@@ -435,6 +435,18 @@
                 </div>
             </div>
         </div>
+        {{else}}
+        {{#if isOnlineRound}}
+        <div class="ui vertical inverted stripe segment" id="particles-js-2">
+            <div class="ui middle inverted aligned stackable grid container" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);">
+                <div class="center aligned row">
+                    <div class="column">
+                        <a class="ui center massive inverted primary button" href="/cms">เข้าสู่ระบบการแข่งขัน</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/if}}
         {{/if}}
 
         {{> footer }}
