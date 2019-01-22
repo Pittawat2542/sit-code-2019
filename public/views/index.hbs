@@ -11,9 +11,9 @@
     </title>
     {{> link_css_index }}
 
-    {{#if isAnnounce}}
-    {{#if isOnlineRound}}
-    <style>
+    {{!-- {{#if isAnnounce}} --}}
+    {{!-- {{#if isOnlineRound}} --}}
+    {{!-- <style>
         @media only screen and (max-width: 360px) {
             #particles-js {
                 width: 100%;
@@ -35,9 +35,9 @@
                 position: relative;
             }
         }
-    </style>
-    {{/if}}
-    {{/if}}
+    </style> --}}
+    {{!-- {{/if}} --}}
+    {{!-- {{/if}} --}}
 </head>
 
 <body>
@@ -87,13 +87,16 @@
                     CODE 2019 รวมทีม 3 คน สมัครเข้าร่วมการแข่งขันชิงทุนการศึกษากว่า 10,000 บาท สมัครได้ตั้งแต่
                     {{#if isOpen}}วันนี้{{else}}11 มกราคม 2562{{/if}} –
                     18 มกราคม 2562</p>
-                {{#if isOnlineRound}}
-                <a class="ui center massive inverted primary button" href="/cms" style="margin-bottom: 20px">เข้าสู่ระบบการแข่งขัน
-                    Online Round</a>
-                {{/if}}
-                {{#if isAnnounce}}
-                <a class="ui center big inverted primary button" href="/announcement">รายชื่อทีมที่มีสิทธิ์แข่งขัน
-                    Online Round</a>
+                {{!-- {{#if isOnlineRound}} --}}
+                {{!-- <a class="ui center massive inverted primary button" href="/cms" style="margin-bottom: 20px">เข้าสู่ระบบการแข่งขัน
+                    Online Round</a> --}}
+                {{!-- {{/if}} --}}
+                {{!-- {{#if isAnnounce}} --}}
+                {{!-- <a class="ui center big inverted primary button" href="/announcement">รายชื่อทีมที่มีสิทธิ์แข่งขัน
+                    Online Round</a> --}}
+                {{!-- {{/if}} --}}
+                {{#if isCodingAnnounce}}
+                <a class="ui center massive inverted primary button" href="/announcement-coding-round" style="margin-bottom: 20px">รายชื่อทีมที่มีสิทธิ์แข่งขันรอบ Coding Round</a>
                 {{/if}}
             </div>
 

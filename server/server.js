@@ -1,11 +1,14 @@
 require("./config/config");
 
+const fs = require("fs");
+
 const _ = require("lodash");
 const express = require("express");
 const bodyParser = require("body-parser");
 const hbs = require("hbs");
 const helmet = require("helmet");
 const compression = require("compression");
+const papaParse = require("papaparse");
 
 const path = require("path");
 
@@ -20,6 +23,7 @@ const openDate = new Date(2019, 0, 11, 0, 0, 0, 0);
 const closeDate = new Date(2019, 0, 18, 23, 59, 59, 0);
 const announceDate = new Date(2019, 0, 19, 15, 0, 0, 0);
 const onlineRoundDate = new Date(2019, 0, 19, 18, 0, 0, 0);
+const codingAnnounceDate = new Date(2019, 0, 23, 16, 0, 0, 0);
 
 // Middlewares
 
@@ -47,6 +51,7 @@ app.get("/", (req, res) =>
     isAnnounce: Date.now() >= announceDate,
     isClose: Date.now() > closeDate,
     isOnlineRound: Date.now() >= onlineRoundDate,
+    isCodingAnnounce: Date.now() >= codingAnnounceDate
   })
 );
 
@@ -302,6 +307,56 @@ app.get("/mockscoreboard", (req, res) => {
 });
 
 app.get("/title", (req, res) => res.render("title"));
+
+app.get("/announcement-coding-round", (req, res) => {
+  if (Date.now() < codingAnnounceDate) {
+    res.redirect("/");
+  } else {
+    fs.readFile(__dirname + "/files/data.csv", (err, data) => {
+      if (err) {
+        console.log(err);
+        return res.status(500);
+      }
+
+      let parsed = papaParse.parse(data.toString());
+
+      // Get first top 40
+      parsed.data = parsed.data.slice(1, parsed.data.length - 2);
+      parsed.data.sort((a, b) => {
+        if (a[9] == b[9]) {
+          return b[8] - a[8];
+        } else {
+          return b[9] - a[9];
+        }
+      });
+
+      parsed.data = parsed.data.slice(0, 40);
+
+      // Sort by school name, then by team name
+      parsed.data.sort((a, b) => {
+        if (a[0] > b[0]) return 1;
+        else if (a[0] < b[0]) return -1;
+        else {
+          if (a[1] > b[1]) return 1;
+          else if (a[1] < b[1]) return -1;
+          else return 0;
+        }
+      });
+
+      let passedTeams = [];
+      parsed.data.map((x, index) =>
+        passedTeams.push({
+          teamName: x[1],
+          school: x[0]
+        })
+      );
+
+      res.render("codingAnnouncement", {
+        passedTeams
+      });
+    });
+  }
+});
 
 app.get("*", (req, res) => res.redirect("/"));
 
