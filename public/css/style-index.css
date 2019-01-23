@@ -196,7 +196,7 @@ th {
 @media only screen and (max-width: 470px) {
   #particles-js {
     width: 100%;
-    height: 50vh;
+    height: 70vh;
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
