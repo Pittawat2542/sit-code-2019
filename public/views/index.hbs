@@ -401,8 +401,8 @@
             <div class="ui middle aligned stackable grid container">
                 <div class="row">
                     <div class="column">
-                        <p style="text-align: center">ขณะนี้ ยังไม่มีเอกสารให้ดาวน์โหลด</p>
-                        {{!-- <table class="ui very basic table">
+                        {{!-- <p style="text-align: center">ขณะนี้ ยังไม่มีเอกสารให้ดาวน์โหลด</p> --}}
+                        <table class="ui very basic table">
                             <thead>
                                 <tr>
                                     <th>เอกสาร</th>
@@ -411,17 +411,21 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>File 1</td>
-                                    <td><a href="/files/test.pdf" download>Filename.pdf</a></td>
+                                    <td>1. หนังสือขออนุญาตโรงเรียนเพื่อขอเข้าร่วมการแข่งขัน SIT CODE 2019</td>
+                                    <td><a href="/files/หนังสือขออนุญาตโรงเรียน.pdf" download>หนังสือขออนุญาตโรงเรียนเพื่อขอเข้าการร่วมแข่งขัน.pdf</a></td>
+                                </tr>
+                                <tr>
+                                    <td>2. ระเบียบการแข่งขัน SIT CODE 2019</td>
+                                    <td><a href="/files/ระเบียบการแข่งขัน_SIT_CODE_2019.pdf" download>ระเบียบการแข่งขัน_SIT_CODE_2019.pdf</a></td>
                                 </tr>
                             </tbody>
-                        </table> --}}
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
 
-        {{#if isOpen}}
+        {{!-- {{#if isOpen}}
         <div class="ui vertical inverted stripe segment" id="particles-js-2">
             <div class="ui middle inverted aligned stackable grid container" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);">
                 <div class="center aligned row">
@@ -453,7 +457,7 @@
             </div>
         </div>
         {{/if}}
-        {{/if}}
+        {{/if}} --}}
 
         {{> footer }}
     </div>
