@@ -10,6 +10,9 @@
         < SITCODE 2019 />
     </title>
     {{> link_css_index }}
+    <link rel="stylesheet" type="text/css" href="dist/components/dimmer.min.css">
+    <link rel="stylesheet" type="text/css" href="dist/components/modal.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
     {{!-- {{#if isAnnounce}} --}}
     {{!-- {{#if isOnlineRound}} --}}
@@ -42,6 +45,22 @@
 
 <body>
     {{> menu_index }}
+
+    <div class="ui basic modal">
+        <div class="ui icon header">
+            <i class="fas fa-exclamation-triangle fa-5x"></i><br><br>
+            <h2 class="ui header inverted">เลื่อนวันแข่งขัน SITCODE 2019 <br>เป็นวันที่ 11 กุมภาพันธ์ 2562</h2>
+        </div>
+        <div class="content" style="text-align: center">
+            <p>เนื่องด้วยผลกระทบจากฝุ่นละออง PM 2.5 ทางคณะฯ จึงได้เลื่อนการจัดการแข่งขันออกไปเป็น<br>วันจันทร์ที่ 11 กุมภาพันธ์ 2562</p>
+        </div>
+        <div class="actions">
+            <div class="ui green ok inverted button">
+                <i class="checkmark icon"></i>
+                รับทราบ
+            </div>
+        </div>
+    </div>
 
     <!-- Page Contents -->
     <div class="pusher">
@@ -96,7 +115,8 @@
                     Online Round</a> --}}
                 {{!-- {{/if}} --}}
                 {{#if isCodingAnnounce}}
-                <a class="ui center massive inverted primary button" href="/announcement-coding-round" style="margin-bottom: 20px">รายชื่อทีมที่มีสิทธิ์แข่งขันรอบ Coding Round</a>
+                <a class="ui center massive inverted primary button" href="/announcement-coding-round" style="margin-bottom: 20px">รายชื่อทีมที่มีสิทธิ์แข่งขันรอบ
+                    Coding Round</a>
                 {{/if}}
             </div>
 
@@ -292,7 +312,7 @@
                     <div class="column">
                         <img class="ui small centered image" src="/img/final.svg">
                         <p class="ui medium header">แข่งขันรอบรองชนะเลิศ และชิงชนะเลิศ</p>
-                        <p>4 กุมภาพันธ์ 2562</p>
+                        <p class="bold red">11 กุมภาพันธ์ 2562</p>
                     </div>
                 </div>
                 <div class="row">
@@ -308,7 +328,8 @@
         <div class="ui vertical stripe segment">
             <h2 class="ui center aligned header blue-gradient">กำหนดการการแข่งขันรอบชิงชนะเลิศ</h2>
             <div class="ui stackable middle center aligned equal width grid container">
-                <p>วันจันทร์ที่ 4 กุมภาพันธ์ 2562 ณ อาคารคณะเทคโนโลยีสารสนเทศ และสำนักหอสมุด
+                <p>วันจันทร์ที่ <span class="bold red">4 กุมภาพันธ์ 2562</span> ณ อาคารคณะเทคโนโลยีสารสนเทศ
+                    และสำนักหอสมุด
                     มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี</p>
                 <div class="row">
                     <div class="twenty wide column">
@@ -463,6 +484,14 @@
     </div>
 
     {{> script_src_index }}
+    <script src="dist/components/dimmer.min.js"></script>
+    <script src="dist/components/modal.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.ui.modal').modal('show');
+        });
+    </script>
 
 </body>
 

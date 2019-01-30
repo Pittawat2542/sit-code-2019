@@ -1,6 +1,7 @@
 require("./config/config");
 
 const fs = require("fs");
+const path = require("path");
 
 const _ = require("lodash");
 const express = require("express");
@@ -9,8 +10,6 @@ const hbs = require("hbs");
 const helmet = require("helmet");
 const compression = require("compression");
 const papaParse = require("papaparse");
-
-const path = require("path");
 
 const knex = require("./db/knex");
 
