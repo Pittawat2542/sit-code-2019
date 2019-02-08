@@ -1,9 +1,10 @@
 #main-container {
   position: absolute;
-  margin: auto;
+  margin: 0 auto;
+  top:50%;
+  transform: translateY(-50%);
   left: 0;
   right: 0;
-  margin-top: 5vh;
 }
 
 .main {
@@ -26,8 +27,14 @@ p.main {
   -webkit-animation: hue 5s infinite linear;
 }
 
+h2.desc {
+ font-family: Kanit, sans-serif;
+  font-size: 3.75rem;
+}
+
 .masthead h1.ui.header {
   font-size: 7rem;
+  margin-top: 0;
 }
 
 @-webkit-keyframes hue {
@@ -37,6 +44,11 @@ p.main {
   to {
     -webkit-filter: hue-rotate(-360deg);
   }
+}
+
+p.main.date {
+  color: #fdb44b;
+  font-size: 4rem;
 }
 
 #particles-js {
