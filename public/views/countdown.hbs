@@ -61,10 +61,10 @@
 
         let time = setInterval(() => {
             let duration = moment.duration(
-                moment("2019-02-11 12:00:00").valueOf() - moment().valueOf()
+                moment("2019-02-11 12:10:00").valueOf() - moment().valueOf()
             );
 
-            if (moment().valueOf() < moment("2019-02-11 10:00:00").valueOf()) {
+            if (moment().valueOf() < moment("2019-02-11 10:10:00").valueOf()) {
                 h2.style.display = "none";
                 timer.textContent = "เตรียมพร้อม!";
             } else if (duration >= 0) {
