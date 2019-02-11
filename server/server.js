@@ -1,15 +1,14 @@
 require("./config/config");
 
-const fs = require("fs");
-const path = require("path");
-
 const _ = require("lodash");
-const express = require("express");
 const bodyParser = require("body-parser");
+const compression = require("compression");
+const express = require("express");
+const fs = require("fs");
 const hbs = require("hbs");
 const helmet = require("helmet");
-const compression = require("compression");
 const papaParse = require("papaparse");
+const path = require("path");
 
 const knex = require("./db/knex");
 
@@ -63,6 +62,10 @@ fs.readFile(__dirname + "/files/data.csv", (err, data) => {
       school: x[0]
     })
   );
+  // console.log(passedTeams.sort((a, b) => {
+  //   if (a.teamName.toLowerCase() > b.teamName.toLowerCase()) return 1;
+  //   else return -1;
+  // }));
 });
 
 // Middlewares
@@ -208,6 +211,8 @@ app.get("/team-list", async (req, res) => {
 
   res.send({ arr });
 });
+
+app.get("/countdown", (req, res) => res.render("countdown"))
 
 app.get("/scoreboard", (req, res) => res.render("scoreboard"));
 

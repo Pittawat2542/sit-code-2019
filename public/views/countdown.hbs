@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {{> meta_data }}
+    {{> meta_icon }}
+
+    <!-- Site Properties -->
+    <title>
+        < SITCODE 2019 />
+    </title>
+    {{> link_css_index }}
+    <link rel="stylesheet" href="css/style-title.css">
+    <style>
+        #timer {
+            font-family: 'Kanit', sans-serif;
+            font-size: 7rem;
+        }
+
+        .none {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    {{> menu_index }}
+
+    <!-- Page Contents -->
+    <div class="pusher">
+        <div class="ui inverted vertical masthead center aligned segment" id="particles-js">
+            <div class="ui inverted container" id="main-container">
+                <h1 class="ui header special">
+                    < SITCODE 2019 />
+                </h1>
+                <h2 class="desc">เหลือเวลาอีก</h2>
+                <h1 id="timer">
+                    <span id="hours">00</span> <span class="">hh</span>
+                    <span class="dot">:</span> <span id="minutes">00</span>
+                    <span class="">mm</span> <span class="dot">:</span>
+                    <span id="seconds">00</span> <span class="">ss</span>
+                </h1>
+                <h2 class="desc none">ขอให้โชคดีกับผลการแข่งขัน</h2>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/library/jquery.min.js"></script>
+
+    <script src="dist/components/visibility.min.js"></script>
+    <script src="dist/components/transition.min.js"></script>
+
+    <script src="assets/library/particles.min.js"></script>
+    <script src="js/particle-loader.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script>
+        let timer = document.querySelector("#timer");
+        let hours = document.querySelector("#hours");
+        let minutes = document.querySelector("#minutes");
+        let seconds = document.querySelector("#seconds");
+        let h2 = document.querySelector("h2.desc");
+        let goodLuck = document.querySelector("h2.desc.none");
+
+        let time = setInterval(() => {
+            let duration = moment.duration(
+                moment("2019-02-11 11:30:00").valueOf() - moment().valueOf()
+            );
+
+            if (duration >= 0) {
+                hours.textContent =
+                    duration.hours().toString().length === 1
+                        ? "0" + duration.hours().toString()
+                        : duration.hours().toString();
+                minutes.textContent =
+                    duration.minutes().toString().length === 1
+                        ? "0" + duration.minutes().toString()
+                        : duration.minutes().toString();
+                seconds.textContent =
+                    duration.seconds().toString().length === 1
+                        ? "0" + duration.seconds().toString()
+                        : duration.seconds().toString();
+            } else {
+                timer.textContent = "หมดเวลาการแข่งขัน";
+                h2.style.display = "none";
+                timer.style.color = "#fdb44b";
+                goodLuck.style.display = "block";
+                clearInterval(time);
+            }
+        }, 1000);
+    </script>
+
+</body>
+
+</html>
