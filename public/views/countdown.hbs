@@ -56,9 +56,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script>
         let timer = document.querySelector("#timer");
-        let hours = document.querySelector("#hours");
-        let minutes = document.querySelector("#minutes");
-        let seconds = document.querySelector("#seconds");
         let h2 = document.querySelector("h2.desc");
         let goodLuck = document.querySelector("h2.desc.none");
 
@@ -67,7 +64,15 @@
                 moment("2019-02-11 12:00:00").valueOf() - moment().valueOf()
             );
 
-            if (duration >= 0) {
+            if (moment().valueOf() < moment("2019-02-11 10:00:00").valueOf()) {
+                h2.style.display = "none";
+                timer.textContent = "เตรียมพร้อม!";
+            } else if (duration >= 0) {
+                h2.style.display = "block";
+                timer.innerHTML = '<span id="hours">00</span> <span class="">hh</span> <span class="dot">:</span> <span id="minutes">00</span> <span class="">mm</span> <span class="dot">:</span> <span id="seconds">00</span> <span class="">ss</span>'
+                let hours = document.querySelector("#hours");
+                let minutes = document.querySelector("#minutes");
+                let seconds = document.querySelector("#seconds");
                 hours.textContent =
                     duration.hours().toString().length === 1
                         ? "0" + duration.hours().toString()
